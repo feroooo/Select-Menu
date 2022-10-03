@@ -1,3 +1,19 @@
-# Select-Menu
+# Select Menu - Çoklu İşlem
 
-aaa
+Bu script Feridun ÖZTOK tarafından CheckPoint üzerine devamlı kullanılan scriptleri uzaktan basitçe çağırmak için oluşturulmuştur.
+
+Üzerinde tanımlı olan scripler
+```
+1-Drop Broadcast 
+2-Drop Multicast 
+3-Drop WUDO
+4-Drop RFC 1918 
+5-FTP Backup
+6-Dynamic Block 
+7-Policy Install Alert 
+8-Health Check 
+9-CCC 
+10Super7
+11Auto Download 
+12SSL Hardering 
+```
