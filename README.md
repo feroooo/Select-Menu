@@ -13,7 +13,7 @@ Bu script Feridun ÖZTOK tarafından CheckPoint üzerine devamlı kullanılan sc
 7-Policy Install Alert 
 8-Health Check 
 9-CCC 
-10Super7
-11Auto Download 
-12SSL Hardering 
+10-Super7
+11-Auto Download 
+12-SSL Hardering 
 ```
