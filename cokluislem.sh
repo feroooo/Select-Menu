@@ -661,28 +661,3 @@ do
 done
 
 
-
-#Chance Log
-#=========================================================================================================
-# 2.3.1 Konsol ekrani biraz degisti.
-# 2.3 Menuye autodownload.sh eklendi.
-# 2.2.1 database.txt icine SYSLOGTARGET degiskeni eklendi.
-# 2.2 FTP Backup ile ilgili degisiklikler yapildi.
-# 2.1 Super7 eklendi.
-# 2.0 Policy Install Mail Alert icin database.txt uzerine otomatik kayit olusturulmaya baslandi.
-# 1.9 Kural olusturma asamasinda Layer secimi eklendi.
-# 1.8 Policy Install Mail Alert script indirme menuye eklendi.
-# 1.7 Otomaik guncelleme kontrolu yapilmaya basladi.
-# 1.6 cokluislem.sh kopyalama islemi duzeltildi, Grp_Broadcast tirnak icine alindi. 
-# 1.5 dropc_rfc funtion'u yazildi.
-# 1.4 broadcast.sh multicast.sh wudo.sh dis kaynaktan almak yerine funtion olarak script icine tanimlanmistir.
-# 1.3 Crontab kontrol ve oneri eklendi.
-# 1.2 FTP Backup icin database.txt dosyasi olusturulmaya baslandi.
-# 1.1 Funtion tuslari eklendi.
-# 1.0 Drop Broadcast menuye eklendi.
-# 1.0 Drop Multicast menuye eklendi.
-# 1.0 Drop WUDO menuye eklendi.
-# 1.0 Health Check menuye eklendi.
-# 1.0 Dynamic Block menuye eklendi.
-# 1.0 FTP Backup menuye eklendi.
-# 1.0 Common Check Point Commands menuye eklendi.
