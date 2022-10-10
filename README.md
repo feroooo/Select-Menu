@@ -8,12 +8,14 @@ Bu script Feridun ÖZTOK tarafından CheckPoint üzerine devamlı kullanılan sc
 2-Drop Multicast 
 3-Drop WUDO
 4-Drop RFC 1918 
-5-FTP Backup
-6-Dynamic Block 
-7-Policy Install Alert 
-8-Health Check 
-9-CCC 
-10-Super7
-11-Auto Download 
-12-SSL Hardering 
+5-Drop to CheckPoint
+6-FTP Backup
+7-Dynamic Block 
+8-Policy Install Alert 
+9-Health Check 
+10-CCC 
+11-Super7
+12-Auto Download 
+13-SSL Hardering 
+14-Exit
 ```
