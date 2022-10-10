@@ -4,8 +4,8 @@
 # Kullanim:         ./cokluislem.sh
 # Amaci:            Daha onceden hazirlanan scriptlerin bir menu altindan erisimini kolaylastirmak.
 # Sahibi:           Feridun OZTOK
-# Versiyon:         2.4
-# Tarih:            27 Eylul 2022
+# Versiyon:         2.5
+# Tarih:            10 Ekim 2022
 #====================================================================================================
 
 echo ""
@@ -15,7 +15,7 @@ echo ""
 source /etc/profile.d/CP.sh
 GAIAPORT=4434
 DIZIN=/var/log/egis
-MEVCUTSURUM="Script Versiyon: 2.4"
+MEVCUTSURUM="Script Versiyon: 2.5"
 
 #====================================================================================================
 #  Versiyon Function
@@ -23,8 +23,8 @@ MEVCUTSURUM="Script Versiyon: 2.4"
 show_version_info()
 {
 	echo ""
-	echo "Script Versiyon: 2.4"  
-	echo "Script Tarihi  : 27 Eylul 2022"  
+	echo "Script Versiyon: 2.5"  
+	echo "Script Tarihi  : 10 Ekim 2022"  
 	echo "Son Guncelleyen: Feridun OZTOK"
 	echo ""
 	exit 0
@@ -138,7 +138,7 @@ dizin_kontrol
 #========================================================================================================= 
 echo *#######################################################*
 echo *#_______________ Menu ile kolay secim _______________##*
-echo *#____________________ Version 2.4 ___________________##*
+echo *#____________________ Version 2.5 ___________________##*
 echo *#___________________ Feridun OZTOK __________________##*
 echo *#_ Egis Proje ve Danismanlik Bilisim Hiz. Ltd. Sti. _##*
 echo *#____________ destek@egisbilisim.com.tr _____________##* 
@@ -468,7 +468,21 @@ if [ -f s7pac.sh ]
 		./s7pac.sh
 fi
 }
-		
+	
+droptocheckpoint ()
+{
+if [ -f droptocheckpoint.sh ]
+	then
+		rm droptocheckpoint.sh
+		curl_cli http://dynamic.egisbilisim.com.tr/script/droptocheckpoint.sh | cat > droptocheckpoint.sh && chmod 770 droptocheckpoint.sh
+		./droptocheckpoint.sh
+	else
+		curl_cli http://dynamic.egisbilisim.com.tr/script/droptocheckpoint.sh | cat > droptocheckpoint.sh && chmod 770 droptocheckpoint.sh
+		./droptocheckpoint.sh
+fi
+}
+	
+	
 health_check ()
 {
 if [ -f healthcheck.sh ]
@@ -604,7 +618,7 @@ fi
 
 echo ""
 PS3='Yapilacak islemi secin: '
-options=("Drop Broadcast" "Drop Multicast" "Drop WUDO" "Drop RFC 1918" "FTP Backup" "Dynamic Block" "Policy Install Alert" "Health Check" "CCC" "Super7" "Auto Download" "SSL Hardering" "Cikis")
+options=("Drop Broadcast" "Drop Multicast" "Drop WUDO" "Drop RFC 1918" "Drop to CheckPoint" "FTP Backup" "Dynamic Block" "Policy Install Alert" "Health Check" "CCC" "Super7" "Auto Download" "SSL Hardering"  "Cikis")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -619,6 +633,9 @@ do
             ;;
         "Drop RFC 1918")
 			drop_rfc
+            ;;
+		"Drop to CheckPoint")
+			droptocheckpoint
             ;;
 		"FTP Backup")
 			ftp_backup
