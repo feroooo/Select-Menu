@@ -4,8 +4,8 @@
 # Kullanim:         ./cokluislem.sh
 # Amaci:            Daha onceden hazirlanan scriptlerin bir menu altindan erisimini kolaylastirmak.
 # Sahibi:           Feridun OZTOK
-# Versiyon:         2.5
-# Tarih:            10 Ekim 2022
+# Versiyon:         2.5.1
+# Tarih:            23 Mayıs 2023
 #====================================================================================================
 
 echo ""
@@ -15,7 +15,7 @@ echo ""
 source /etc/profile.d/CP.sh
 GAIAPORT=4434
 DIZIN=/var/log/egis
-MEVCUTSURUM="Script Versiyon: 2.5"
+MEVCUTSURUM="Script Versiyon: 2.5.1"
 
 #====================================================================================================
 #  Versiyon Function
@@ -23,8 +23,8 @@ MEVCUTSURUM="Script Versiyon: 2.5"
 show_version_info()
 {
 	echo ""
-	echo "Script Versiyon: 2.5"  
-	echo "Script Tarihi  : 10 Ekim 2022"  
+	echo "Script Versiyon: 2.5.1"  
+	echo "Script Tarihi  : 23 Mayıs 2023"  
 	echo "Son Guncelleyen: Feridun OZTOK"
 	echo ""
 	exit 0
@@ -35,7 +35,7 @@ show_version_info()
 #====================================================================================================
 versiyon_kontrol()
 {
-	curl_cli http://dynamic.egisbilisim.com.tr/script/cokluislem.sh | grep "MEVCUTSURUM" > surumyakala.txt
+	curl_cli http://script.egisbilisim.com.tr/script/cokluislem.sh | grep "MEVCUTSURUM" > surumyakala.txt
 	sed '2,$d' surumyakala.txt > surumazalt.txt
 	awk -F"MEVCUTSURUM="  '{print $2}' surumazalt.txt > surumkisa.txt
 	sed 's/"//g' surumkisa.txt > surumtemizlenmis.txt
@@ -102,7 +102,7 @@ show_help_info()
 check_updates()
 {
 	rm cokluislem.sh
-	curl_cli http://dynamic.egisbilisim.com.tr/script/cokluislem.sh | cat > cokluislem.sh && chmod 770 cokluislem.sh
+	curl_cli http://script.egisbilisim.com.tr/script/cokluislem.sh | cat > cokluislem.sh && chmod 770 cokluislem.sh
 	exit 0
 }
 
@@ -138,7 +138,7 @@ dizin_kontrol
 #========================================================================================================= 
 echo *#######################################################*
 echo *#_______________ Menu ile kolay secim _______________##*
-echo *#____________________ Version 2.5 ___________________##*
+echo *#___________________ Version 2.5.1 __________________##*
 echo *#___________________ Feridun OZTOK __________________##*
 echo *#_ Egis Proje ve Danismanlik Bilisim Hiz. Ltd. Sti. _##*
 echo *#____________ destek@egisbilisim.com.tr _____________##* 
@@ -360,7 +360,7 @@ if [ -f cron_yedek.sh ]
 	then
 		rm cron_yedek.sh
 		echo ""
-		curl_cli http://dynamic.egisbilisim.com.tr/script/cron_yedek.sh | cat > cron_yedek.sh && chmod 770 cron_yedek.sh
+		curl_cli http://script.egisbilisim.com.tr/script/cron_yedek.sh | cat > cron_yedek.sh && chmod 770 cron_yedek.sh
 		echo ""
 		rm /var/log/egis/upgrade_tools/*bilgi.txt
 		rm /var/log/egis/upgrade_tools/*export.tgz
@@ -375,7 +375,7 @@ if [ -f cron_yedek.sh ]
 	else
 		echo ""
 		echo ""
-		curl_cli http://dynamic.egisbilisim.com.tr/script/cron_yedek.sh | cat > cron_yedek.sh && chmod 770 cron_yedek.sh
+		curl_cli http://script.egisbilisim.com.tr/script/cron_yedek.sh | cat > cron_yedek.sh && chmod 770 cron_yedek.sh
 		echo ""
 		cd $DIZIN
 		if [ -d upgrade_tools ]
@@ -447,10 +447,10 @@ dynamic_block ()
 if [ -f opendbl.sh ]
 	then
 		rm opendbl.sh
-		curl_cli http://dynamic.egisbilisim.com.tr/script/opendbl.sh | cat > opendbl.sh && chmod 770 opendbl.sh
+		curl_cli http://script.egisbilisim.com.tr/script/opendbl.sh | cat > opendbl.sh && chmod 770 opendbl.sh
 		./opendbl.sh
 	else
-		curl_cli http://dynamic.egisbilisim.com.tr/script/opendbl.sh | cat > opendbl.sh && chmod 770 opendbl.sh
+		curl_cli http://script.egisbilisim.com.tr/script/opendbl.sh | cat > opendbl.sh && chmod 770 opendbl.sh
 		./opendbl.sh
 fi
 }
@@ -461,10 +461,10 @@ super7 ()
 if [ -f s7pac.sh ]
 	then
 		rm s7pac.sh
-		curl_cli http://dynamic.egisbilisim.com.tr/script/s7pac.sh | cat > s7pac.sh && chmod 770 s7pac.sh
+		curl_cli http://script.egisbilisim.com.tr/script/s7pac.sh | cat > s7pac.sh && chmod 770 s7pac.sh
 		./s7pac.sh
 	else
-		curl_cli http://dynamic.egisbilisim.com.tr/script/s7pac.sh | cat > s7pac.sh && chmod 770 s7pac.sh
+		curl_cli http://script.egisbilisim.com.tr/script/s7pac.sh | cat > s7pac.sh && chmod 770 s7pac.sh
 		./s7pac.sh
 fi
 }
@@ -474,10 +474,10 @@ droptocheckpoint ()
 if [ -f droptocheckpoint.sh ]
 	then
 		rm droptocheckpoint.sh
-		curl_cli http://dynamic.egisbilisim.com.tr/script/droptocheckpoint.sh | cat > droptocheckpoint.sh && chmod 770 droptocheckpoint.sh
+		curl_cli http://script.egisbilisim.com.tr/script/droptocheckpoint.sh | cat > droptocheckpoint.sh && chmod 770 droptocheckpoint.sh
 		./droptocheckpoint.sh
 	else
-		curl_cli http://dynamic.egisbilisim.com.tr/script/droptocheckpoint.sh | cat > droptocheckpoint.sh && chmod 770 droptocheckpoint.sh
+		curl_cli http://script.egisbilisim.com.tr/script/droptocheckpoint.sh | cat > droptocheckpoint.sh && chmod 770 droptocheckpoint.sh
 		./droptocheckpoint.sh
 fi
 }
@@ -488,11 +488,11 @@ health_check ()
 if [ -f healthcheck.sh ]
 	then
 		rm healthcheck.sh
-		curl_cli http://dynamic.egisbilisim.com.tr/script/healthcheck.sh | cat > healthcheck.sh && chmod 770 healthcheck.sh
+		curl_cli http://script.egisbilisim.com.tr/script/healthcheck.sh | cat > healthcheck.sh && chmod 770 healthcheck.sh
 		./healthcheck.sh
 		exit 0
 	else
-		curl_cli http://dynamic.egisbilisim.com.tr/script/healthcheck.sh | cat > healthcheck.sh && chmod 770 healthcheck.sh
+		curl_cli http://script.egisbilisim.com.tr/script/healthcheck.sh | cat > healthcheck.sh && chmod 770 healthcheck.sh
 		./healthcheck.sh
 		exit 0
 fi
@@ -503,11 +503,11 @@ auto_download ()
 if [ -f autodownload.sh ]
 	then
 		rm autodownload.sh
-		curl_cli http://dynamic.egisbilisim.com.tr/script/autodownload.sh | cat > autodownload.sh && chmod 770 autodownload.sh
+		curl_cli http://script.egisbilisim.com.tr/script/autodownload.sh | cat > autodownload.sh && chmod 770 autodownload.sh
 		echo "autodownload.sh silindi ve yeniden indirildi."
 		
 	else
-		curl_cli http://dynamic.egisbilisim.com.tr/script/autodownload.sh | cat > autodownload.sh && chmod 770 autodownload.sh
+		curl_cli http://script.egisbilisim.com.tr/script/autodownload.sh | cat > autodownload.sh && chmod 770 autodownload.sh
 		echo "autodownload.sh indirildi."
 fi
 crontab -u scpadmin -l > crontab.txt
@@ -545,10 +545,10 @@ ssl_hardering()
 if [ -f hardering.sh ]
 	then
 		rm hardering.sh
-		curl_cli http://dynamic.egisbilisim.com.tr/script/hardering.sh | cat > hardering.sh && chmod 770 hardering.sh
+		curl_cli http://script.egisbilisim.com.tr/script/hardering.sh | cat > hardering.sh && chmod 770 hardering.sh
 		echo "hardering.sh silindi ve yeniden indirildi."
 	else
-		curl_cli http://dynamic.egisbilisim.com.tr/script/hardering.sh | cat > hardering.sh && chmod 770 hardering.sh
+		curl_cli http://script.egisbilisim.com.tr/script/hardering.sh | cat > hardering.sh && chmod 770 hardering.sh
 		echo "hardering.sh indirildi."
 fi
 			select os in "Gorevi simdi calistir" "Gorevi daha sonra el ile calistiracagim" 
@@ -570,15 +570,44 @@ fi
 			done
 }
 
+vpn_resolve()
+{
+if [ -f vpn_dns_resolve.sh ]
+	then
+		rm vpn_dns_resolve.sh
+		curl_cli http://script.egisbilisim.com.tr/script/vpn_dns_resolve.sh | cat > vpn_dns_resolve.sh && chmod 770 vpn_dns_resolve.sh
+		echo "vpn_dns_resolve.sh silindi ve yeniden indirildi."
+	else
+		curl_cli http://script.egisbilisim.com.tr/script/vpn_dns_resolve.sh | cat > vpn_dns_resolve.sh && chmod 770 vpn_dns_resolve.sh
+		echo "vpn_dns_resolve.sh indirildi."
+fi
+			select os in "Gorevi simdi calistir" "Gorevi daha sonra el ile calistiracagim" 
+			do
+			case $os in
+			"Gorevi simdi calistir")
+				./vpn_dns_resolve.sh
+				break
+			;;
+			"Gorevi daha sonra el ile calistiracagim")
+                echo "Gorev el ile calistirilacak"
+				break
+			;;
+			*)
+				echo "Gecersiz giris."
+				break
+			;;
+			esac
+			done
+}
 
 policy_install ()
 {
 if [ -f policyinstall.sh ]
 	then
 		rm policyinstall.sh
-		curl_cli http://dynamic.egisbilisim.com.tr/script/policyinstall.sh | cat > policyinstall.sh && chmod 770 policyinstall.sh
+		curl_cli http://script.egisbilisim.com.tr/script/policyinstall.sh | cat > policyinstall.sh && chmod 770 policyinstall.sh
 	else
-		curl_cli http://dynamic.egisbilisim.com.tr/script/policyinstall.sh | cat > policyinstall.sh && chmod 770 policyinstall.sh
+		curl_cli http://script.egisbilisim.com.tr/script/policyinstall.sh | cat > policyinstall.sh && chmod 770 policyinstall.sh
 		echo ""	
 			
 			grep "MAIL_SENDER=" database.txt > sender.txt
@@ -618,7 +647,7 @@ fi
 
 echo ""
 PS3='Yapilacak islemi secin: '
-options=("Drop Broadcast" "Drop Multicast" "Drop WUDO" "Drop RFC 1918" "Drop to CheckPoint" "FTP Backup" "Dynamic Block" "Policy Install Alert" "Health Check" "CCC" "Super7" "Auto Download" "SSL Hardering"  "Cikis")
+options=("Drop Broadcast" "Drop Multicast" "Drop WUDO" "Drop RFC 1918" "Drop to CheckPoint" "FTP Backup" "Dynamic Block" "Policy Install Alert" "Health Check" "CCC" "Super7" "Auto Download" "SSL Hardering" "VPN DNS Resolve" "Cikis")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -665,6 +694,9 @@ do
 		"Super7")
 			super7
 			;;
+		"VPN DNS Resolve")
+			vpn_resolve
+			;;	
         "Cikis")
 			echo ""
 			echo "Cikis yapliyor..."
